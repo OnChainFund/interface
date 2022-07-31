@@ -1,8 +1,9 @@
+// 最下層拿掉
 import React, { useState } from 'react'
 import Header from './Header'
 import Sidebar from './Sidebar'
 import { Wrapper, MainContent, AppContent } from './styled'
-import Footer from './Footer'
+// import Footer from './Footer'
 import URLWarning from 'src/components/Header/URLWarning'
 import MobileMenu from './Header/MobileMenu'
 
@@ -27,7 +28,7 @@ const Layout: React.FC<unknown> = ({ children }) => {
         <Header activeMobileMenu={activeMobileMenu} handleMobileMenu={handleMobileMenu} />
         <AppContent>{children}</AppContent>
         {activeMobileMenu && <MobileMenu activeMobileMenu={activeMobileMenu} handleMobileMenu={handleMobileMenu} />}
-        <Footer />
+        {/* <Footer /> */}
       </MainContent>
     </Wrapper>
   )

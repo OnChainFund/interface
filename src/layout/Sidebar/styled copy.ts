@@ -3,7 +3,7 @@ import { darken } from 'polished'
 import { Text } from '@pangolindex/components'
 import { NavLink } from 'react-router-dom'
 import { ExternalLink } from '../../theme'
-// 左邊menu
+
 export const Sider = styled.div<{ collapsed: boolean }>`
   overflow: hidden;
   height: 100vh;
@@ -27,7 +27,7 @@ export const Sider = styled.div<{ collapsed: boolean }>`
     overflow-x: hidden !important;
   }
 `
-// 左邊menu 下方 來加入我們
+
 export const BottomBar = styled.div`
   position: absolute;
   bottom: 0;
@@ -70,7 +70,7 @@ export const MenuWrapper = styled.div`
 `
 
 const activeClassName = 'ACTIVE'
-// 左邊menu 上面三個選項
+
 export const MenuLink = styled(NavLink).attrs({
   activeClassName
 })`
@@ -96,7 +96,7 @@ export const MenuLink = styled(NavLink).attrs({
     color: ${({ theme }) => darken(0.1, theme.text1)};
   }
 `
-// 左邊menu 上面三個選項
+
 export const MenuExternalLink = styled(ExternalLink).attrs({
   activeClassName
 })`
@@ -121,7 +121,7 @@ export const MenuExternalLink = styled(ExternalLink).attrs({
     color: ${({ theme }) => darken(0.1, theme.text1)};
   }
 `
-// 左邊menu 每一格格子設定 :focus {滑鼠點選
+
 export const MenuItem = styled.div<{ isActive?: boolean }>`
   ${({ theme }) => theme.flexRowNoWrap}
   display: flex;
@@ -151,7 +151,7 @@ export const MenuItem = styled.div<{ isActive?: boolean }>`
 export const Menu = styled.div`
   position: relative;
 `
-// 左邊menu 每一格的字
+
 export const MenuName = styled(Text)`
   margin-left: 12px;
 `

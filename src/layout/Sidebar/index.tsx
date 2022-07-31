@@ -1,9 +1,10 @@
+// SocialMedia拿掉 且將左邊menu只留三個 先拆成兩塊 第二塊內容帶更改
 import React from 'react'
 import { useWindowSize } from '../../hooks/useWindowSize'
-import SocialMedia from '../SocialMedia'
-import { Sider, CollapseBar, BottomBar } from './styled'
-import Backward from '../../assets/svg/backward.svg'
-import Forward from '../../assets/svg/forward.svg'
+// import SocialMedia from '../SocialMedia'
+import { Sider } from './styled'
+// import Backward from '../../assets/svg/backward.svg'
+// import Forward from '../../assets/svg/forward.svg'
 import { Scrollbars } from 'react-custom-scrollbars'
 import Logo from '../Logo'
 import { MenuLinks } from './MenuLinks'
@@ -37,16 +38,14 @@ export default function Sidebar({ collapsed, onCollapsed }: SidebarProps) {
       >
         <MenuLinks collapsed={collapsed} />
       </Scrollbars>
-      <BottomBar>
-        <SocialMedia collapsed={collapsed} />
-        <CollapseBar onClick={() => onCollapsed(!collapsed)}>
-          {collapsed ? (
-            <img height={'16px'} src={Forward} alt={'Forward'} />
-          ) : (
-            <img height={'16px'} src={Backward} alt={'Backward'} />
-          )}
-        </CollapseBar>
-      </BottomBar>
+      <Scrollbars
+        autoHeight
+        autoHeightMax={height ? height - 150 : window.innerHeight - 150}
+        autoHide
+        style={{ flex: 1, overflowX: 'hidden' }}
+      >
+        <MenuLinks collapsed={collapsed} />
+      </Scrollbars>
     </Sider>
   )
 }

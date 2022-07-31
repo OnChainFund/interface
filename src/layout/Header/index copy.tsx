@@ -1,17 +1,16 @@
-// 上方列 刪除語言 黑白
-import { NetworkSelection, useAccountBalanceHook } from '@pangolindex/components'
+import { Button, NetworkSelection, useAccountBalanceHook, useTranslation } from '@pangolindex/components'
 import React, { useState, useRef, useMemo } from 'react'
 import { useActiveWeb3React } from '../../hooks'
 import Web3Status from '../../components/Web3Status'
 import Modal from '../../components/Modal'
 import PngBalanceContent from './PngBalanceContent'
-// import LanguageSelection from '../../components/LanguageSelection'
+import LanguageSelection from '../../components/LanguageSelection'
 import { ApplicationModal } from '../../state/application/actions'
 import { useModalOpen, useToggleModal } from '../../state/application/hooks'
 import { useOnClickOutside } from '../../hooks/useOnClickOutside'
-// import { useDarkModeManager } from '../../state/user/hooks'
-// import NightMode from '../../assets/svg/nightMode.svg'
-// import LightMode from '../../assets/svg/lightMode.svg'
+import { useDarkModeManager } from '../../state/user/hooks'
+import NightMode from '../../assets/svg/nightMode.svg'
+import LightMode from '../../assets/svg/lightMode.svg'
 import {
   HeaderFrame,
   HeaderControls,
@@ -21,13 +20,13 @@ import {
   PNGAmount,
   PNGWrapper,
   NetworkCard,
-  BalanceText
-  // ThemeMode,
-  // LegacyButtonWrapper
+  BalanceText,
+  ThemeMode,
+  LegacyButtonWrapper
 } from './styled'
 import { Hidden, MEDIA_WIDTHS } from 'src/theme'
 import { useChainId } from 'src/hooks'
-import { NETWORK_CURRENCY, NETWORK_LABELS } from 'src/constants'
+import { LEGACY_PAGE, NETWORK_CURRENCY, NETWORK_LABELS } from 'src/constants'
 import { useMedia } from 'react-use'
 import { MobileHeader } from './MobileHeader'
 
@@ -39,7 +38,7 @@ interface Props {
 export default function Header({ activeMobileMenu, handleMobileMenu }: Props) {
   const { account } = useActiveWeb3React()
   const chainId = useChainId()
-  // const { t } = useTranslation()
+  const { t } = useTranslation()
 
   const useETHBalances = useAccountBalanceHook[chainId]
 
@@ -55,7 +54,7 @@ export default function Header({ activeMobileMenu, handleMobileMenu }: Props) {
   const toggle = useToggleModal(ApplicationModal.FARM)
   useOnClickOutside(node, open ? toggle : undefined)
 
-  // const [isDark, toggleDarkMode] = useDarkModeManager()
+  const [isDark, toggleDarkMode] = useDarkModeManager()
 
   const closeNetworkSelection = () => {
     setOpenNetworkSelection(false)
@@ -73,11 +72,11 @@ export default function Header({ activeMobileMenu, handleMobileMenu }: Props) {
       ) : (
         <HeaderControls>
           <HeaderElement>
-            {/* <LegacyButtonWrapper> */}
-            {/* <Button variant="primary" height={36} padding="4px 6px" href={LEGACY_PAGE} as="a">
+            <LegacyButtonWrapper>
+              <Button variant="primary" height={36} padding="4px 6px" href={LEGACY_PAGE} as="a">
                 <span style={{ whiteSpace: 'nowrap', color: '#000' }}>{t('header.returnToLegacySite')}</span>
-              </Button> */}
-            {/* </LegacyButtonWrapper> */}
+              </Button>
+            </LegacyButtonWrapper>
             <Hidden upToSmall={true}>
               <NetworkSelection open={openNetworkSelection} closeModal={closeNetworkSelection} />
               {chainId && NETWORK_LABELS[chainId] && (
@@ -104,14 +103,14 @@ export default function Header({ activeMobileMenu, handleMobileMenu }: Props) {
             </AccountElement>
           </HeaderElement>
           <HeaderElementWrap>
-            {/* <LanguageSelection /> */}
-            {/* <ThemeMode onClick={() => toggleDarkMode()}>
+            <LanguageSelection />
+            <ThemeMode onClick={() => toggleDarkMode()}>
               {isDark ? (
                 <img width={'16px'} src={LightMode} alt={'Setting'} />
               ) : (
                 <img width={'16px'} src={NightMode} alt={'NightMode'} />
               )}
-            </ThemeMode> */}
+            </ThemeMode>
           </HeaderElementWrap>
         </HeaderControls>
       )}
