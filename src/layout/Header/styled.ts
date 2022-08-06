@@ -9,7 +9,7 @@ export const HeaderFrame = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  width: 100%;
+  width: 80%;
   top: 0;
   position: relative;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);

@@ -7,6 +7,7 @@ export const PageWrapper = styled(Box)`
 // !!右下方塊比例 100% 0% ->暫時news消失
 export const TopContainer = styled(Box)`
   display: grid;
+  margin-right: 200px;
   grid-template-columns: 100% 0%;
   grid-gap: 12px;
   margin-bottom: 22px;
@@ -14,6 +15,7 @@ export const TopContainer = styled(Box)`
   ${({ theme }) => theme.mediaWidth.upToSmall`
     grid-template-columns: none;
     grid-template-rows: max-content auto;
+    // margin-right: 200px;
     margin-bottom: 0px;
   `};
 `

@@ -12,13 +12,13 @@ export const Sider = styled.div<{ collapsed: boolean }>`
   left: 0;
   transition: width 350ms ease;
   background-color: ${({ theme }) => theme.color2};
-  width: ${({ collapsed }) => (collapsed ? '70px' : '220px')};
+  width: ${({ collapsed }) => (collapsed ? '300px' : '300px')};
   padding: 10px;
   display: flex;
   flex-direction: column;
 
   ${({ theme, collapsed }) => theme.mediaWidth.upToSmall`
-  display: ${collapsed ? 'none' : 'flex'};
+  display: ${collapsed ? 'flex' : 'flex'};
   width: 100%;
   height: 100%
   `};
@@ -44,6 +44,29 @@ export const CollapseBar = styled.div`
   text-align: center;
   cursor: pointer;
   background-color: ${({ theme }) => theme.bg6};
+  width: '100%';
+  transition: all 0.2s;
+  display: none;
+
+  ${({ theme }) => theme.mediaWidth.upToMedium`
+   display:block;
+  `};
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+   display:block;
+  `};
+
+  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+   display:block;
+  `};
+`
+export const CollapseBar2 = styled.div`
+  height: 48px;
+  color: ${({ theme }) => theme.text2};
+  line-height: 48px;
+  text-align: center;
+  cursor: pointer;
+  background-color: ${({ theme }) => theme.bg3};
   width: '100%';
   transition: all 0.2s;
   display: none;

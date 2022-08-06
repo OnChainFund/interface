@@ -4,7 +4,7 @@ import { Box } from '@pangolindex/components'
 export const MainContent = styled.div<{ collapsed: boolean }>`
   &&& {
     min-height: 100vh;
-    margin-left: 70px;
+    margin-left: 280px;
     width: calc(100% - 70px);
     display: flex;
     flex-direction: column;

@@ -1,13 +1,10 @@
 // SocialMedia拿掉 且將左邊menu只留三個 先拆成兩塊 第二塊內容帶更改
 import React from 'react'
 import { useWindowSize } from '../../hooks/useWindowSize'
-// import SocialMedia from '../SocialMedia'
 import { Sider } from './styled'
-// import Backward from '../../assets/svg/backward.svg'
-// import Forward from '../../assets/svg/forward.svg'
 import { Scrollbars } from 'react-custom-scrollbars'
 import Logo from '../Logo'
-import { MenuLinks } from './MenuLinks'
+import { MenuLinks, MenuLinks2 } from './MenuLinks'
 interface SidebarProps {
   collapsed: boolean
   onCollapsed: (isCollapsed: boolean) => void
@@ -32,7 +29,7 @@ export default function Sidebar({ collapsed, onCollapsed }: SidebarProps) {
 
       <Scrollbars
         autoHeight
-        autoHeightMax={height ? height - 150 : window.innerHeight - 150}
+        autoHeightMax={height ? height - 390 : window.innerHeight - 390}
         autoHide
         style={{ flex: 1, overflowX: 'hidden' }}
       >
@@ -44,7 +41,7 @@ export default function Sidebar({ collapsed, onCollapsed }: SidebarProps) {
         autoHide
         style={{ flex: 1, overflowX: 'hidden' }}
       >
-        <MenuLinks collapsed={collapsed} />
+        <MenuLinks2 collapsed={collapsed} />
       </Scrollbars>
     </Sider>
   )
