@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { MENU_LINK } from 'src/constants'
 import { ThemeContext } from 'styled-components'
 import { Menu, MenuItem, MenuLink, MenuName, MenuWrapper } from './styled'
-import { useTranslation } from '@pangolindex/components'
+// import { useTranslation } from '@pangolindex/components'
 import { Dashboard, Swap, Pool } from '../../components/Icons'
 import { useLocation } from 'react-router-dom'
 import { useChainId } from 'src/hooks'
@@ -16,7 +16,7 @@ interface Props {
 
 export const MenuLinks: React.FC<Props> = ({ collapsed = false, onClick }) => {
   const theme = useContext(ThemeContext)
-  const { t } = useTranslation()
+  // const { t } = useTranslation()
   const chainId = useChainId()
   const chain = CHAINS[chainId]
 
@@ -26,21 +26,21 @@ export const MenuLinks: React.FC<Props> = ({ collapsed = false, onClick }) => {
     {
       link: MENU_LINK.dashboard,
       icon: Dashboard,
-      title: t('header.dashboard'),
+      title: 'Dashboard',
       id: 'dashboard',
       isActive: location?.pathname?.startsWith(MENU_LINK.dashboard)
     },
     {
       link: MENU_LINK.swap,
       icon: Swap,
-      title: t('header.swap'),
+      title: 'Descover',
       id: 'swap',
       isActive: location?.pathname?.startsWith(MENU_LINK.swap)
     },
     {
       link: MENU_LINK.pool,
       icon: Pool,
-      title: `${t('header.pool')} & ${t('header.farm')}`,
+      title: 'Network',
       id: 'pool',
       isActive: location?.pathname?.startsWith(MENU_LINK.pool)
     }
@@ -76,7 +76,7 @@ export const MenuLinks: React.FC<Props> = ({ collapsed = false, onClick }) => {
 }
 export const MenuLinks2: React.FC<Props> = ({ collapsed = false, onClick }) => {
   const theme = useContext(ThemeContext)
-  const { t } = useTranslation()
+  // const { t } = useTranslation()
   const chainId = useChainId()
   const chain = CHAINS[chainId]
 
@@ -86,21 +86,29 @@ export const MenuLinks2: React.FC<Props> = ({ collapsed = false, onClick }) => {
     {
       link: MENU_LINK.dashboard,
       icon: Dashboard,
-      title: t('header.dashboard'),
+      title: 'vault1',
       id: 'dashboard',
       isActive: location?.pathname?.startsWith(MENU_LINK.dashboard)
     },
     {
       link: MENU_LINK.swap,
       icon: Swap,
-      title: t('header.swap'),
+      // title: t('header.swap'),
+      title: 'vault2',
       id: 'swap',
       isActive: location?.pathname?.startsWith(MENU_LINK.swap)
     },
     {
       link: MENU_LINK.pool,
       icon: Pool,
-      title: `${t('header.pool')} & ${t('header.farm')}`,
+      title: `vault3`,
+      id: 'pool',
+      isActive: location?.pathname?.startsWith(MENU_LINK.pool)
+    },
+    {
+      link: MENU_LINK.pool,
+      icon: Pool,
+      title: `vault4`,
       id: 'pool',
       isActive: location?.pathname?.startsWith(MENU_LINK.pool)
     }

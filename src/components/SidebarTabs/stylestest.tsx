@@ -4,10 +4,12 @@ import styled from 'styled-components'
 export const PageWrapper = styled(Box)`
   width: 100%;
 `
-
+// !!右下方塊比例 100% 0% ->暫時news消失
 export const TopContainer = styled(Box)`
   display: grid;
-  grid-template-columns: 50% 50%;
+  // margin-right: 120 px;
+  // margin-left: 320 px;
+  grid-template-columns: 20% 80%;
   grid-gap: 12px;
   margin-bottom: 22px;
 
@@ -17,13 +19,15 @@ export const TopContainer = styled(Box)`
     margin-bottom: 0px;
   `};
 `
-
+// Portfolio Value in All Chains
+// Connect a wallet to see your Portfolio
 export const StatsWrapper = styled(Box)`
   display: grid;
   grid-template-rows: auto auto;
   grid-gap: 12px;
 `
-
+// Dashboard
+// Greetings kind guests! Let’s ape in today…
 export const PageTitle = styled.div`
   font-size: 28px;
   color: ${({ theme }) => theme.text7};
@@ -32,7 +36,8 @@ export const PageTitle = styled.div`
    font-size: 22px;
   `};
 `
-
+// Dashboard
+// Greetings kind guests! Let’s ape in today…
 export const PageDescription = styled.div`
   font-size: 18px;
   margin-bottom: 16px;

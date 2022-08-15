@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Box } from '@pangolindex/components'
 import { darken } from 'polished'
 import { Text } from '@pangolindex/components'
 import { NavLink } from 'react-router-dom'
@@ -177,4 +178,11 @@ export const Menu = styled.div`
 // 左邊menu 每一格的字
 export const MenuName = styled(Text)`
   margin-left: 12px;
+`
+export const SiderbarVault = styled(Box)`
+  background-color: #4a4a4a;
+  width: 95%;
+  height: 50vh;
+  margin: auto;
+  border-radius: 8px;
 `

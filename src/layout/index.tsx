@@ -2,16 +2,18 @@
 import React, { useState } from 'react'
 //Header最上面 三格
 import Header from './Header'
-// import Sidebar from './Sidebar'
+import Sidebar from './Sidebar'
 import { Wrapper, MainContent, AppContent } from './styled'
 // import Footer from './Footer'
 import URLWarning from 'src/components/Header/URLWarning'
 import MobileMenu from './Header/MobileMenu'
 
 const Layout: React.FC<unknown> = ({ children }) => {
-  const [isDrawerCollapsed] = useState(true)
+  // const [isDrawerCollapsed] = useState(true)
 
   const [activeMobileMenu, setActiveMobileMenu] = useState(false)
+
+  const [isDrawerCollapsed, setIsDrawerCollapsed] = useState(true)
 
   const handleMobileMenu = () => {
     if (activeMobileMenu) {
@@ -23,7 +25,7 @@ const Layout: React.FC<unknown> = ({ children }) => {
 
   return (
     <Wrapper>
-      {/* <Sidebar collapsed={isDrawerCollapsed} onCollapsed={value => setIsDrawerCollapsed(value)} /> */}
+      <Sidebar collapsed={isDrawerCollapsed} onCollapsed={value => setIsDrawerCollapsed(value)} />
       <MainContent collapsed={isDrawerCollapsed}>
         <URLWarning />
         <Header activeMobileMenu={activeMobileMenu} handleMobileMenu={handleMobileMenu} />
